@@ -99,7 +99,8 @@ class Particles {
 
 var myvar1;
 var myvar2;
-
+var interval1;
+var interval2;
 
 
 function spawnenemies() {
@@ -138,7 +139,7 @@ function spawnenemies() {
         enemies.push(new Enemy(x, y, radius, color, velocity));
 
 
-    }, 1000);
+    }, interval1);
     myvar2 = setInterval(() => {
         let radius = Math.random() * 60;
 
@@ -173,7 +174,7 @@ function spawnenemies() {
         enemies.push(new Enemy(x, y, radius, color, velocity));
 
     
-    }, 20000);
+    }, interval2);
 
 
 }
@@ -333,6 +334,8 @@ addEventListener('click', (event) => {
 function init(){
     clearInterval(myvar1);
     clearInterval(myvar2);
+    interval1=1000;
+    interval2=20000;
     player = new Player(x, y, 15, "white");
     projectiles = [];
     particles = [];
