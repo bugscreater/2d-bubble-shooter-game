@@ -97,12 +97,14 @@ class Particles {
 }
 
 
+var myvar1;
+var myvar2;
 
 
 
 function spawnenemies() {
 
-    setInterval(() => {
+   myvar1 =  setInterval(() => {
         let radius = Math.random() * 30;
 
         if (radius < 15) {
@@ -137,7 +139,7 @@ function spawnenemies() {
 
 
     }, 1000);
-    setInterval(() => {
+    myvar2 = setInterval(() => {
         let radius = Math.random() * 60;
 
         if (radius < 15) {
@@ -186,20 +188,7 @@ let projectiles = [];
 let particles = [];
 let enemies = [];
 
-function init(){
-    player = new Player(x, y, 15, "white");
-    projectiles = [];
-    particles = [];
-    enemies = [];
-    score = 0;
-    energy = 100;
-    scoreval.innerHTML = score;
-    energyval.innerHTML = energy;
-    scorecardval.innerHTML = score;
-    gameover_sound.pause();
-    
 
-}
 
 let animationid;
 var collisonsound = new Audio('explosion_sound.wav');
@@ -341,11 +330,27 @@ addEventListener('click', (event) => {
    
 
 })
-startgamebtn.addEventListener('click',()=>{
-    init();
+function init(){
+    clearInterval(myvar1);
+    clearInterval(myvar2);
+    player = new Player(x, y, 15, "white");
+    projectiles = [];
+    particles = [];
+    enemies = [];
+    score = 0;
+    energy = 100;
+    scoreval.innerHTML = score;
+    energyval.innerHTML = energy;
+    scorecardval.innerHTML = score;
+    gameover_sound.pause();
     animate();
     spawnenemies();
     scorecard.style.display = 'none';
     
+
+}
+startgamebtn.addEventListener('click',()=>{
+    init();
+
 })
 
