@@ -138,7 +138,7 @@ function spawnenemies() {
 
     }, 1000);
     setInterval(() => {
-        let radius = Math.random() * 70;
+        let radius = Math.random() * 60;
 
         if (radius < 15) {
 
@@ -165,13 +165,13 @@ function spawnenemies() {
 
 
         const velocity = {
-            x: Math.cos(angle)*1.4,
-            y: Math.sin(angle)*1.4
+            x: Math.cos(angle)*1.2,
+            y: Math.sin(angle)*1.2
         }
         enemies.push(new Enemy(x, y, radius, color, velocity));
 
     
-    }, 15000);
+    }, 20000);
 
 
 }
